@@ -2,7 +2,7 @@ const { GoogleGenerativeAI } = require('@google/generative-ai');
 
 class ProductAdvisorService {
   constructor() {
-    this.genAI = new GoogleGenerativeAI('AIzaSyBdxtfC_qBRKEeXyMl_S1R6flf1WFW0mLM');
+    this.genAI = new GoogleGenerativeAI('');
   }
 
   async generateProductAdvice(input) {
