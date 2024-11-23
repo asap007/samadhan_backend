@@ -2,7 +2,7 @@ const { GoogleGenerativeAI } = require('@google/generative-ai');
 
 class ComprehensiveFinancialAdvisor {
   constructor() {
-    this.genAI = new GoogleGenerativeAI('');
+    this.genAI = new GoogleGenerativeAI('AIzaSyBdxtfC_qBRKEeXyMl_S1R6flf1WFW0mLM');
   }
 
   async generateFinancialAdvice(input) {
