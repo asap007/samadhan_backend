@@ -1,7 +1,6 @@
-// controllers/pdfController.js
-
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 const multer = require('multer');
+require('dotenv').config();
 const pdf = require('pdf-parse');
 
 // Configure multer for memory storage
@@ -25,7 +24,7 @@ exports.getPDFAdvice = async (req, res) => {
         return res.status(400).json({ error: 'No PDF file uploaded' });
       }
 
-      const genAI = new GoogleGenerativeAI('AIzaSyBdxtfC_qBRKEeXyMl_S1R6flf1WFW0mLM');
+      const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
       const model = await genAI.getGenerativeModel({ model: "gemini-pro" });
 
       // Parse PDF
@@ -36,7 +35,7 @@ exports.getPDFAdvice = async (req, res) => {
       if (req.body.message) {
         // Follow-up question
         prompt = `
-        You are a financial advisor analyzing a financial document. Here is the document content make sure to answer in consices and precise form:
+        You are a financial advisor analyzing a financial document. Strictly answer only financial questions, don't  entertain any other query and ask the users to ask only finance realated question in that case. Here is the document content make sure to answer in consices and precise form:
 
         ${pdfText}
 

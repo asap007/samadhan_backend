@@ -1,8 +1,9 @@
 const { GoogleGenerativeAI } = require('@google/generative-ai');
+require('dotenv').config();
 
 class ProductAdvisorService {
   constructor() {
-    this.genAI = new GoogleGenerativeAI('');
+    this.genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
   }
 
   async generateProductAdvice(input) {
