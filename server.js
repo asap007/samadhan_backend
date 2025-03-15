@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 5000;
 
 // Explicit CORS configuration
 const corsOptions = {
-  origin: 'https://samadhan-kappa.vercel.app',
+  origin: 'http://localhost:5173',
   methods: ['GET', 'POST', 'OPTIONS'],
   credentials: true,
 };
